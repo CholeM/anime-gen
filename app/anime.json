@@ -1,0 +1,107 @@
+{
+  "data": [
+      {
+          "node": {
+              "id": 21,
+              "title": "One Piece",
+              "main_picture": {
+                  "medium": "https://cdn.myanimelist.net/images/anime/6/73245.jpg",
+                  "large": "https://cdn.myanimelist.net/images/anime/6/73245l.jpg"
+              }
+          }
+      },
+      {
+          "node": {
+              "id": 459,
+              "title": "One Piece Movie 01",
+              "main_picture": {
+                  "medium": "https://cdn.myanimelist.net/images/anime/1770/97704.jpg",
+                  "large": "https://cdn.myanimelist.net/images/anime/1770/97704l.jpg"
+              }
+          }
+      },
+      {
+          "node": {
+              "id": 12859,
+              "title": "One Piece Film: Z",
+              "main_picture": {
+                  "medium": "https://cdn.myanimelist.net/images/anime/6/44297.jpg",
+                  "large": "https://cdn.myanimelist.net/images/anime/6/44297l.jpg"
+              }
+          }
+      },
+      {
+          "node": {
+              "id": 31772,
+              "title": "One Punch Man Specials",
+              "main_picture": {
+                  "medium": "https://cdn.myanimelist.net/images/anime/1452/97840.jpg",
+                  "large": "https://cdn.myanimelist.net/images/anime/1452/97840l.jpg"
+              }
+          }
+      },
+      {
+          "node": {
+              "id": 38234,
+              "title": "One Piece Movie 14: Stampede",
+              "main_picture": {
+                  "medium": "https://cdn.myanimelist.net/images/anime/1221/100550.jpg",
+                  "large": "https://cdn.myanimelist.net/images/anime/1221/100550l.jpg"
+              }
+          }
+      },
+      {
+          "node": {
+              "id": 34134,
+              "title": "One Punch Man 2nd Season",
+              "main_picture": {
+                  "medium": "https://cdn.myanimelist.net/images/anime/1247/122044.jpg",
+                  "large": "https://cdn.myanimelist.net/images/anime/1247/122044l.jpg"
+              }
+          }
+      },
+      {
+          "node": {
+              "id": 31490,
+              "title": "One Piece Film: Gold",
+              "main_picture": {
+                  "medium": "https://cdn.myanimelist.net/images/anime/1081/137690.jpg",
+                  "large": "https://cdn.myanimelist.net/images/anime/1081/137690l.jpg"
+              }
+          }
+      },
+      {
+          "node": {
+              "id": 34392,
+              "title": "One Room",
+              "main_picture": {
+                  "medium": "https://cdn.myanimelist.net/images/anime/9/83777.jpg",
+                  "large": "https://cdn.myanimelist.net/images/anime/9/83777l.jpg"
+              }
+          }
+      },
+      {
+          "node": {
+              "id": 4155,
+              "title": "One Piece Film: Strong World",
+              "main_picture": {
+                  "medium": "https://cdn.myanimelist.net/images/anime/1192/116784.jpg",
+                  "large": "https://cdn.myanimelist.net/images/anime/1192/116784l.jpg"
+              }
+          }
+      },
+      {
+          "node": {
+              "id": 9999,
+              "title": "One Piece 3D: Mugiwara Chase",
+              "main_picture": {
+                  "medium": "https://cdn.myanimelist.net/images/anime/4/32455.jpg",
+                  "large": "https://cdn.myanimelist.net/images/anime/4/32455l.jpg"
+              }
+          }
+      }
+  ],
+  "paging": {
+      "next": "https://api.myanimelist.net/v2/anime?offset=10&q=one"
+  }
+}
