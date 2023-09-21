@@ -2,12 +2,12 @@
 import React, { useState } from "react";
 import Overview from "./Overview";
 import Watch from "./Watch";
-import { Recommendation, Relation } from "@/app/models/recommendations";
-import { External, Trailer } from "@/app/models/anime";
+import { External, Relations, Trailer } from "@/app/models/anime";
+import { Recommendation } from "@/app/models/anime";
 
 type TabsProps = {
   recommendations: Recommendation[],
-  relatedMedia: Relation[],
+  relatedMedia: Relations[],
   trailer: Trailer,
   streaming: External[],
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import moment from "moment";
 import { AnimeInfo } from '../models/anime';
 import { StarFilledIcon } from "@radix-ui/react-icons";
 

@@ -1,41 +1,49 @@
 import React from "react";
-import { getAnimeDetails } from "@/app/api/anime/getAnimeDetails";
 import AnimeImage from "@/app/components/AnimeImage";
 import Details from "@/app/components/Details";
 import Synopsis from "@/app/components/Synopsis";
 import Tabs from "@/app/components/TabComponent/Tabs";
-import { getRecommendations, getRelations } from "@/app/api/anime/getRecommendations";
+import { getAnimeDetails, getRecommendations, getRelatedMedia } from "@/app/services/getAnimeDetails";
+import { Recommendation, Relation } from "@/app/models/anime";
 
-export default async function Page({ params }: { params: { id: number } }) {
-  const anime = await getAnimeDetails(params.id)
-	const recommendations = await getRecommendations(params.id)
-	const relatedMedia = await getRelations(params.id)
+export default async function Page({ params }: { params: { id: string } }) {
+  const aData = await getAnimeDetails(params.id);
+	const recData = await getRecommendations(params.id)
+	const relData = await getRelatedMedia(params.id)
+	const anime = aData?.data;
+	const recommendations = recData?.data;
+	const relatedMedia = relData?.data;
 
-
-  return (
-    <React.Fragment>
-      <div className="py-5"></div>
-			<div className="grid gap-8 sm:grid-cols-5 container mx-auto px-8 sm:px-[50px] justify-center">
-				<AnimeImage
-					url={anime.images.jpg.image_url}
-					altText={anime.title}
-				/>
-				<div className="sm:col-span-4">
-					<Details
-						key={anime.mal_id}
-						anime={anime}
+	if (typeof anime === 'undefined') {
+		return (
+			<>No Data</>
+		)
+	} else {
+		return (
+			<React.Fragment>
+				<div className="py-5"></div>
+				<div className="grid gap-8 sm:grid-cols-5 container mx-auto px-8 sm:px-[50px] justify-center">
+					<AnimeImage
+						url={anime?.images.jpg.image_url}
+						altText={anime.title}
 					/>
-					<Synopsis anime={anime} />
+					<div className="sm:col-span-4">
+						<Details
+							key={anime.mal_id}
+							anime={anime}
+						/>
+						<Synopsis anime={anime} />
+					</div>
 				</div>
-			</div>
-			<div className="mt-8"></div>
+				<div className="mt-8"></div>
 
-			<Tabs 
-				recommendations={recommendations}
-				relatedMedia={relatedMedia}
-				trailer={anime.trailer}
-				streaming={anime.streaming}
-			/>
-    </React.Fragment>
-  )
+				<Tabs 
+					recommendations={recommendations as Recommendation[]}
+					relatedMedia={relatedMedia as Relation[]}
+					trailer={anime.trailer}
+					streaming={anime.streaming}
+				/>
+			</React.Fragment>
+  	)
+	}
 }

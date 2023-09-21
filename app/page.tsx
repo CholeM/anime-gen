@@ -1,12 +1,13 @@
 import { Hero } from './components/Hero';
-import Ranking from './components/Ranking';
+import Airing from './components/Airing';
+import AllTime from './components/AllTime';
 
 export default async function Home() {
   return (
     <>
       <Hero />
-      <Ranking type="all-time" title="Top All Time" />
-      <Ranking type="airing" title="Top Airing" />
+      <AllTime />
+      <Airing />
     </>
   )
 }

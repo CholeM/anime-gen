@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { getAnimeDetails } from "../api/anime/getAnimeDetails";
+import React from "react";
 
 type ImageProps = {
   url: string;

@@ -1,7 +1,7 @@
 import React from "react"
 import Link from "next/link";
 import { AnimeInfo } from "../models/anime";
-import { Recommendation } from "../models/recommendations";
+import { Recommendation } from "../models/anime";
 
 export default function CardRec({ anime }: { anime: Recommendation }) {
 

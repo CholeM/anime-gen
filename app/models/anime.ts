@@ -1,3 +1,13 @@
+export interface Airing {
+  pagination: Pagination;
+  data: AnimeInfo[];
+}
+
+export interface Top {
+  pagination: Pagination;
+  data: AnimeInfo[];
+}
+
 
 export interface AnimeInfo {
   mal_id: number;
@@ -117,4 +127,42 @@ export interface Images {
   small_image_url: string;
   large_image_url: string;
   maximum_image_url: string;
+}
+
+export interface Pagination {
+  last_visible_page: number;
+  has_next_page: boolean;
+  current_page: number;
+  items: Items;
+}
+
+export interface Items {
+  count:    number;
+  total:    number;
+  per_page: number;
+}
+
+export interface Recommendation {
+  entry: Entry;
+  url: string;
+  votes: number;
+}
+
+export interface Entry {
+  mal_id: number;
+  url: string;
+  images: { jpg: Image, webp: Image };
+  title: string;
+}
+
+export interface Relations {
+  relation: string;
+  entry: RelEntry[];
+}
+
+export interface RelEntry {
+  mal_id: number;
+  type: string;
+  name: string;
+  url: string;
 }

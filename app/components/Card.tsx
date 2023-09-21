@@ -1,15 +1,15 @@
 import React from "react"
 import Link from "next/link";
-import { Ranking } from "../models/ranking";
+import { AnimeInfo } from "../models/anime";
 
 type CardProps = {
-  anime: Ranking;
+  anime: AnimeInfo;
   type: string;
 }
 export default function Card({ anime, type }:  CardProps) {
 
   return (
-    <div className="relative mx-auto w-full max-w-sm">
+    <div className="relative mx-auto w-full max-w-sm mb-2">
       <Link href={`/anime/${anime.mal_id}`}>
         <div className="rounded-lg">
           <div className="relative rounded-lg">
@@ -32,7 +32,7 @@ export default function Card({ anime, type }:  CardProps) {
 
           <div className="mt-2">
             <h2
-              className="text-base md:text-lg font-semibold text-slate-500 dark:text-slate-100"
+              className="text-sm font-semibold text-slate-500 dark:text-slate-100"
             >
               {anime.title}
             </h2>
