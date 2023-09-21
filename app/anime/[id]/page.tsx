@@ -20,11 +20,11 @@ export default async function Page({ params }: { params: { id: string } }) {
 		)
 	} else {
 		return (
-			<React.Fragment>
+			<>
 				<div className="py-5"></div>
 				<div className="grid gap-8 sm:grid-cols-5 container mx-auto px-8 sm:px-[50px] justify-center">
 					<AnimeImage
-						url={anime?.images.jpg.image_url}
+						url={anime.images.jpg.image_url}
 						altText={anime.title}
 					/>
 					<div className="sm:col-span-4">
@@ -43,7 +43,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 					trailer={anime.trailer}
 					streaming={anime.streaming}
 				/>
-			</React.Fragment>
+			</>
   	)
 	}
 }

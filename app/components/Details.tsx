@@ -8,10 +8,10 @@ export default function Details({ anime }: { anime: AnimeInfo }) {
 
   return (
     <div>
-      <div className="flex flex-wrap items-center space-x-2 leading-8">
+      <div className="flex flex-wrap sm:flex-nowrap items-center space-x-2 leading-8">
         <span className="font-semibold text-3xl">{anime.title}</span>
-        <div className={`${style} px-2 rounded-lg`}>
-          <span className="font-semibold text-sm whitespace-nowrap">{anime.status}</span>
+        <div className={`${style} px-2 rounded-lg flex justify-center`}>
+          <span className="font-semibold text-sm whitespace-nowrap max-w-full flex-initial">{anime.status}</span>
         </div>
         <span className="flex items-center">{anime.score}{' '}<StarFilledIcon className="text-yellow-500"/></span>
       </div>
@@ -24,9 +24,9 @@ export default function Details({ anime }: { anime: AnimeInfo }) {
       </span>
 
       <div className="text-gray-700 dark:text-white mt-5 text-base">
-        <div className="flex flex-row sm:gap-5 gap-3 flex-wrap">
+        <div className="flex flex-row sm:gap-5 flex-wrap sm:flex-nowrap">
           <div>
-            <div>
+          <div>
               <span className="font-semibold">Type: </span>{anime.type}
             </div>
             <div>
@@ -58,8 +58,7 @@ export default function Details({ anime }: { anime: AnimeInfo }) {
             ))}
           </div>
         </div>
-
-        <ul className="flex gap-2 pt-4 w-fit text-white">
+        <ul className="flex gap-2 pt-4 w-fit text-white flex-wrap">
           {anime.genres.map(genre => (
             <li
               key={genre.mal_id}

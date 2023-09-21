@@ -12,7 +12,7 @@ export default async function Airing() {
     )
 
   return (
-    <div className="container mx-auto px-4 mb-12">
+    <div className="container mx-auto px-4 pb-5">
       <div className="mb-5">
         <h2 className="text-2xl font-bold">
           Top Airing
