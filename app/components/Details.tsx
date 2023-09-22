@@ -35,7 +35,7 @@ export default function Details({ anime }: { anime: AnimeInfo }) {
             <div>
               <span className="font-semibold">Episodes: </span>{anime.episodes}
             </div>
-            {anime.type === 'TV' ? (
+            {anime.type === 'TV' && anime.season !== null ? (
               <div>
                 <span className="font-semibold">Season: </span>
                 {`${anime.season[0]?.toUpperCase()}${anime.season.slice(1)} ${anime.year}`}
