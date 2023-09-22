@@ -5,6 +5,7 @@ import Synopsis from "@/app/components/Synopsis";
 import Tabs from "@/app/components/TabComponent/Tabs";
 import { getAnimeDetails, getRecommendations, getRelatedMedia } from "@/app/services/getAnimeDetails";
 import { Recommendation, Relation } from "@/app/models/anime";
+import ErrorDisplay from "@/app/components/ErrorDisplay";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const aData = await getAnimeDetails(params.id);
@@ -16,7 +17,9 @@ export default async function Page({ params }: { params: { id: string } }) {
 
 	if (typeof anime === 'undefined') {
 		return (
-			<>No Data</>
+			<div className="lg:min-h-screen min-h-[600px] flex flex-col items-center relative w-full">
+				<ErrorDisplay />
+			</div>
 		)
 	} else {
 		return (
