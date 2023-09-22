@@ -8,11 +8,9 @@ type WatchProps = {
 
 export default function Watch({ trailer, streaming }: WatchProps) {
   return (
-    <div>
-      <div className="mb-12">
-        <div className="mb-5">
-          <h2 className="text-2xl font-bold">Trailer</h2>
-        </div>
+    <div className="mb-12">
+      <h2 className="text-2xl font-bold mb-5">Trailer</h2>
+      {trailer.url ? (
         <div className="md:h-[250px] h-[200px] md:w-[500px] w-[250px] relative overflow-hidden mb-5">
           <iframe
             src={`https://www.youtube.com/embed/${trailer.youtube_id}`}
@@ -22,10 +20,9 @@ export default function Watch({ trailer, streaming }: WatchProps) {
             className="w-full h-full"
           />
         </div>
-        <div className="mb-5">
-          <h2 className="text-2xl font-bold">Stream</h2>
-        </div>
-        <div className="flex">
+      ) : null }
+      <h2 className="text-2xl font-bold mb-5">Stream</h2>
+      <div className="flex">
         {...streaming.map(stream => (
           <a 
             key={stream.name}
@@ -35,7 +32,6 @@ export default function Watch({ trailer, streaming }: WatchProps) {
             {stream.name}
           </a>
         ))}
-        </div>
       </div>
     </div>
   )

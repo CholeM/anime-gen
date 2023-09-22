@@ -1,6 +1,6 @@
 import React from "react";
 import { AnimeInfo } from '../models/anime';
-import { StarFilledIcon } from "@radix-ui/react-icons";
+import { StarIcon } from "@heroicons/react/24/solid";
 
 export default function Details({ anime }: { anime: AnimeInfo }) {
   let style = (anime.status === 'Finished Airing') ? "bg-blue-500 text-white" :
@@ -13,7 +13,7 @@ export default function Details({ anime }: { anime: AnimeInfo }) {
         <div className={`${style} px-2 rounded-lg flex justify-center`}>
           <span className="font-semibold text-sm whitespace-nowrap max-w-full flex-initial">{anime.status}</span>
         </div>
-        <span className="flex items-center">{anime.score}{' '}<StarFilledIcon className="text-yellow-500"/></span>
+        <span className="flex items-center">{anime.score}{' '}<StarIcon className="text-yellow-500"/></span>
       </div>
       <span className="text-gray-500 dark:text-slate-50 italic font-base">
         {!anime.title_english ? (
@@ -35,10 +35,14 @@ export default function Details({ anime }: { anime: AnimeInfo }) {
             <div>
               <span className="font-semibold">Episodes: </span>{anime.episodes}
             </div>
-            <div>
-              <span className="font-semibold">Season: </span>
-              {`${anime.season[0].toUpperCase()}${anime.season.slice(1)} ${anime.year}`}
-            </div>
+            {anime.type === 'TV' ? (
+              <div>
+                <span className="font-semibold">Season: </span>
+                {`${anime.season[0]?.toUpperCase()}${anime.season.slice(1)} ${anime.year}`}
+              </div>
+            ) : (
+              <></>
+            )}
             <div>
               <span className="font-semibold">Aired: </span>
               {anime.aired.string}

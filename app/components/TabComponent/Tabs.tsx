@@ -4,6 +4,7 @@ import Overview from "./Overview";
 import Watch from "./Watch";
 import { External, Relations, Trailer } from "@/app/models/anime";
 import { Recommendation } from "@/app/models/anime";
+import Episodes from "./Episodes";
 
 type TabsProps = {
   recommendations: Recommendation[],
@@ -23,6 +24,37 @@ export default function Tabs(
   const handleChangeTab = (tab: string) => {
     setActiveTab(tab);
   }
+
+  const getTab = (tab: string) => {
+    let item;
+    switch (tab) {
+      case "tab1":
+        item = (
+          <Overview 
+            recommendations={recommendations}
+            relatedMedia={relatedMedia}
+          />
+        );
+        break;
+      case "tab2":
+        item = (
+          <Watch 
+            trailer={trailer}
+            streaming={streaming}
+          />
+        );
+        break;
+      case "tab3":
+        item = (
+          <Episodes />
+        );
+        break;
+      default: 
+        item = (<></>)
+    }
+    return item;
+  }
+
   return (
     <div className="container mx-auto px-8 justify-center pb-10">
       <ul className="-mb-px flex items-center gap-4 font-medium border-b dark:border-black">
@@ -42,20 +74,18 @@ export default function Tabs(
             Watch
           </a>
         </li>
+        <li className="flex-1">
+          <a 
+            className={activeTab === "tab3" ? `${style} ${active}` : `${style}`}            
+            onClick={() => handleChangeTab("tab3")}
+          >
+            Episodes
+          </a>
+        </li>
       </ul>
 
       <div className="mt-8">
-        { activeTab === "tab1" ?
-          <Overview 
-            recommendations={recommendations}
-            relatedMedia={relatedMedia}
-          />
-        :
-          <Watch 
-            trailer={trailer}
-            streaming={streaming}
-          />
-        }
+        {getTab(activeTab)}
       </div>
     </div>
   )
