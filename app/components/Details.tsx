@@ -13,7 +13,7 @@ export default function Details({ anime }: { anime: AnimeInfo }) {
         <div className={`${style} px-2 rounded-lg flex justify-center`}>
           <span className="font-semibold text-sm whitespace-nowrap max-w-full flex-initial">{anime.status}</span>
         </div>
-        <span className="flex items-center">{anime.score}{' '}<StarIcon className="text-yellow-500"/></span>
+        <span className="flex items-center">{anime.score}{' '}<StarIcon className="text-yellow-500 w-5"/></span>
       </div>
       <span className="text-gray-500 dark:text-slate-50 italic font-base">
         {!anime.title_english ? (
