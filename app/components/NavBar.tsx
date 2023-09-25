@@ -1,39 +1,74 @@
+"use client"
+
 import Link from 'next/link';
 import { ThemeSwitcher } from './ThemeSwitcher';
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Navbar, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/react';
 
-
-export default function NavBar() {
+export default function NavBar() { 
 
   return (
-    <nav className="bg-base-100 backdrop-blur-lg sticky top-0 z-30 shadow-lg flex align-items-center p-5 min-h-[4rem] w-full">
-      <div className="w-[50%] justify-start">
-        <div className="relative inline-block">
-          <ul
-            tabIndex={0}
-            className="w-32 flex px-4 gap-4"
+    <Navbar disableAnimation className='shadow-lg'>
+      <NavbarContent className="sm:hidden" justify="start">
+        <NavbarMenuToggle />
+      </NavbarContent>
+      <NavbarContent className='hidden sm:flex'>
+        <NavbarItem>
+          <Link 
+            href="/"
+            className={`flex max-md:text-xl items-center gap-0.5 opacity-80 font-bold hover:opacity-100 hover:text-blue-500 transition-all group border-b border-transparent w-fit`}
           >
-            <span>
-              <Link 
-                href="/"
-                className={`flex max-md:text-xl items-center gap-0.5 opacity-80 font-bold hover:opacity-100 hover:text-blue-500 transition-all group border-b border-transparent w-fit`}
-              >
-                Home
-              </Link>
-            </span>
-            <span>
-              <Link 
-                href="/anime/random"
-                className={`flex max-md:text-xl items-center gap-0.5 opacity-80 font-bold hover:opacity-100 hover:text-blue-500 transition-all group border-b border-transparent w-fit`}
-              >
-                Random
-              </Link>
-            </span>
-          </ul>
-        </div>
-      </div>
-      <div className="w-[50%] justify-end">
+            Home
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link 
+            prefetch={false}
+            href="/anime/random"
+            className={`flex max-md:text-xl items-center gap-0.5 opacity-80 font-bold hover:opacity-100 hover:text-blue-500 transition-all group border-b border-transparent w-fit`}
+          >
+            Random
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link
+            href="/seasons/current"
+            className={`flex max-md:text-xl items-center gap-0.5 opacity-80 font-bold hover:opacity-100 hover:text-blue-500 transition-all group border-b border-transparent w-fit`}
+          >
+            Current Season
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+      <NavbarContent justify="end">
         <ThemeSwitcher />
-      </div>
-    </nav>
+      </NavbarContent>
+
+      <NavbarMenu>
+        <NavbarMenuItem>
+          <Link
+            className="w-full"
+            href="/"
+          >
+            Home
+          </Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <Link
+            className="w-full"
+            href="/anime/random"
+          >
+            Random
+          </Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <Link
+            className="w-full"
+            href="/seasons/current"
+          >
+            Current Season
+          </Link>
+        </NavbarMenuItem>
+      </NavbarMenu>
+    </Navbar>
   )
 }
